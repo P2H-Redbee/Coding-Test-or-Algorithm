@@ -1,0 +1,25 @@
+# p.92 그리디 알고리즘 
+# 실전1 - 큰 수의 법칙
+
+n, m, k = map(int, input().split())
+a = input().split()
+
+#가장 큰 수 2개 추출하기
+a.sort(reverse=True)
+print(a)
+sum = 0
+count = 0
+
+for k in range(m) :
+    if count < k :
+        sum = sum + int(a[0])
+        count += 1
+    else :
+        sum = sum + int(a[1])
+        count = 0
+    
+print(sum)
+
+# m번 더하도록 반복하기
+# 반복 중에 k 번 더했는지 검사
+

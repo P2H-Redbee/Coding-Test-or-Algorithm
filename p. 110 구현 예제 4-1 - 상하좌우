@@ -1,0 +1,44 @@
+# p. 110 예제 4-1
+# 구현 - 상하좌우
+n = int(input())
+dir = input().split()
+x, y = 1, 1
+
+for d in dir :
+    if (x == 1 and d == 'L') or (x == n and d == 'R') or (y == 1 and d == 'U') or (y == n and d == 'D') :
+        continue
+    if d == 'L' :
+        x = x - 1
+    elif d == 'R' :
+        x = x + 1
+    elif d == 'U' :
+        y = y + 1
+    elif d == 'D' :
+        y = y - 1
+
+print(x, ',', y)
+
+
+
+# # 문제 풀이 (책 알고리즘)
+# n = int(input())
+# dir = input().split()
+# x, y = 1, 1
+# types = ['L', 'R', 'U', 'D']
+# dx = [-1, 1, 0, 0]
+# dy = [0, 0, -1, 1]
+
+# for k in dir :
+#     for i in range(4) :
+#         tx, ty = 0, 0
+#         if k == types[i] :
+#             tx = x + dx[i]
+#             ty = y + dy[i]
+#         if tx >= 1 :
+#             x = tx
+#         if ty >= 1 :
+#             y = ty
+    
+# print(x, ',', y)
+
+print(x, ',', y)

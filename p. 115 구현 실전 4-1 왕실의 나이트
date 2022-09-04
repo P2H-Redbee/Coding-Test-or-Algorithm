@@ -1,0 +1,50 @@
+# p.115 구현
+# 실전 4-1 왕실의 나이트
+
+p = input()
+con_p = list(p)
+
+# a~h를 1~8로 바꾸기
+origin = ["a", "b", "c", "d", "e", "f", "g", "h"]
+con = [1, 2, 3, 4, 5, 6, 7, 8]
+for i in range(8) :
+    if p[0] == origin[i] :
+        con_p[0] = str(con[i])
+        break
+
+con_p = list(map(int, con_p))
+
+# 매핑할거 만들기
+moves = [[-2,-1], (-2,1), (2,-1), (2,1), (-1,2), (1,2), (-1,-2), (-1,2)]
+
+# 매핑 8개 다 해보고 가능한 것 카운트하기
+count = 0
+for move in moves :
+    temp_p  = [0, 0]
+    for i in range(2) :
+        temp_p[i] = con_p[i] + move[i]
+    if temp_p[0] >= 1 and temp_p[1] >= 1 :
+        count += 1
+
+print(count)
+
+
+# # 교재 답안 예시
+
+# # 나이트 위치 입력
+# input_data = input()
+# row = int(input_data[1])
+# column = int(ord(input_data[0])) - int(ord('a')) + 1
+
+# # 방향 8개
+# steps = [(-2,-1), (-2,1), (2,-1), (2,1), (-1,2), (1,2), (-1,-2), (1,-2)]
+
+# # 8가지 방향 이동가능한지 이동해보기
+# result = 0
+# for step in steps :
+#     next_row = row + step[0]
+#     next_column = column + step[1]
+#     if 1 <= next_row <= 8 and 1 <= next_column <= 8 :
+#         result += 1
+
+# print(result)
